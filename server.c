@@ -23,4 +23,19 @@ int main()
         perror("Client Error: Socket not created succesfully");
         return 0;
     }
+    //Structure to store details
+    struct sockaddr_in server; 
+    memset(&server, '0', sizeof(server)); 
+
+    //Initialize    
+    server.sin_family = AF_INET;
+    server.sin_port = htons(8000); 
+        server.sin_addr.s_addr = htonl(INADDR_ANY);
+   
+
+    bind(fd, (struct sockaddr*)&server, sizeof(server)); 
+
+    int in;
+    
+    listen(fd, 10); 
 }
