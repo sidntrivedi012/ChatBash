@@ -27,4 +27,27 @@ int main(int argc, char *argv[])
 		perror("Client Error: Socket not created succesfully");
 		return 0;
 	}
+
+	//Structure to store details
+	struct sockaddr_in server;
+	memset(&server, '0', sizeof(server));
+
+	//Initialize
+	server.sin_family = AF_INET;
+	server.sin_port = htons(atoi(argv[2]));
+
+	int in = inet_pton(AF_INET, argv[1], &server.sin_addr);
+	if (in < 0)
+	{
+		perror("Client Error: IP not initialized succesfully");
+		return 0;
+	}
+
+	//Connect to given server
+	in = connect(fd, (struct sockaddr *)&server, sizeof(server));
+	if (in < 0)
+	{
+		perror("Client Error: Connection Failed.");
+		return 0;
+	}
 }
