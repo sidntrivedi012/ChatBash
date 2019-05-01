@@ -50,4 +50,33 @@ int main(int argc, char *argv[])
 		perror("Client Error: Connection Failed.");
 		return 0;
 	}
+
+	while (1)
+	{
+		printf("Please enter the message: ");
+		bzero(buff, 256);
+		fgets(buff, 255, stdin);
+
+		printf("\nSending to SERVER: %s ", buff);
+
+		/* Send message to the server */
+		in = send(fd, buff, strlen(buff), 0);
+		if (in < 0)
+		{
+			perror("\nClient Error: Writing to Server");
+			return 0;
+		}
+
+		/* Now read server response */
+		bzero(buff, 256);
+		in = recv(fd, buff, 255, 0);
+		if (in < 0)
+		{
+			perror("\nClient Error: Reading from Server");
+			return 0;
+		}
+		printf("\nReceived FROM SERVER: %s ", buff);
+	}
+	close(fd);
+	return 0;
 }
