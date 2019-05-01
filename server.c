@@ -38,4 +38,18 @@ int main()
     int in;
     
     listen(fd, 10); 
+    while(  in = accept(fd, (struct sockaddr*)NULL, NULL))
+    {       
+        int childpid,n;
+        if ( (childpid = fork ()) == 0 ) 
+        {
+        
+            //printf ("\nOne Client Connected !! ");
+        
+            //close listening socket
+            close (fd);
+        
+            //Clear Zeroes
+            bzero(buff,256);
+            bzero(nbuff,256);
 }
