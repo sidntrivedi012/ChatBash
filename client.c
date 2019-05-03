@@ -1,21 +1,10 @@
-/*
-*
-* Chatroom - a simple linux commandline client/server C program for group chat.
-* Author: Andrew Herriot
-* License: Public Domain
-*
-*/
-
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
 #include <unistd.h>
 #include <stdbool.h>
-
-
 #include <sys/socket.h>
 #include <arpa/inet.h>
-
 #include "chatroom_utils.h"
 
 
@@ -326,28 +315,3 @@ int main(int argc, char *argv[])
   return 0;
 }
 
-
-//something to look into for better stdin
-//http://stackoverflow.com/questions/421860/capture-characters-from-standard-input-without-waiting-for-enter-to-be-pressed
-// #include <unistd.h>
-// #include <termios.h>
-//
-// char getch() {
-//         char buf = 0;
-//         struct termios old = {0};
-//         if (tcgetattr(0, &old) < 0)
-//                 perror("tcsetattr()");
-//         old.c_lflag &= ~ICANON;
-//         old.c_lflag &= ~ECHO;
-//         old.c_cc[VMIN] = 1;
-//         old.c_cc[VTIME] = 0;
-//         if (tcsetattr(0, TCSANOW, &old) < 0)
-//                 perror("tcsetattr ICANON");
-//         if (read(0, &buf, 1) < 0)
-//                 perror ("read()");
-//         old.c_lflag |= ICANON;
-//         old.c_lflag |= ECHO;
-//         if (tcsetattr(0, TCSADRAIN, &old) < 0)
-//                 perror ("tcsetattr ~ICANON");
-//         return (buf);
-// }
