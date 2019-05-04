@@ -6,15 +6,14 @@
 #include <netinet/in.h>
 #include <stdio.h>
 
-
 //color codes
-#define KRED  "\x1B[31m"
-#define KGRN  "\x1B[32m"
-#define KYEL  "\x1B[33m"
-#define KBLU  "\x1B[34m"
-#define KMAG  "\x1B[35m"
-#define KCYN  "\x1B[36m"
-#define KWHT  "\x1B[37m"
+#define KRED "\x1B[31m"
+#define KGRN "\x1B[32m"
+#define KYEL "\x1B[33m"
+#define KBLU "\x1B[34m"
+#define KMAG "\x1B[35m"
+#define KCYN "\x1B[36m"
+#define KWHT "\x1B[37m"
 #define RESET "\033[0m"
 
 //Enum of different messages possible.
@@ -33,7 +32,6 @@ typedef enum
 
 } message_type;
 
-
 //message structure
 typedef struct
 {
@@ -50,7 +48,6 @@ typedef struct connection_info
   struct sockaddr_in address;
   char username[20];
 } connection_info;
-
 
 // Removes the trailing newline character from a string.
 void trim_newline(char *text);
