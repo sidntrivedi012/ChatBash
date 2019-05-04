@@ -1,11 +1,21 @@
-# Terminal-Chatting-Client
+# Chat-Bash ✨
+## A Terminal-Chatting-Client👨‍💻👩‍💻
 
-A P2P chatting client implemented using Sockets in C Programming Language.
-
-## About
-
+A multi-user chatting client implemented using Sockets in C Programming Language.
 
 ## Setup
 
+Server-side:
+`gcc server.c
+ ./a.out <port>`
+ 
+ Client-side:
+ `gcc client.c
+  ./a.out <ip> <port>`
 
-## Future Aspects
+## Major OS Libraries Used:
+* `sys/socket.h`
+* `sys/types.h`
+* `pthread.h`
+* `netinet/in.h`
+* `arpa/inet.h`
